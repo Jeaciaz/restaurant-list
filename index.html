@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="NOINDEX, NOFOLLOW" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="data.js" defer></script>
+    <script src="script.js" defer></script>
+    <title>Список кафе</title>
+  </head>
+  <body>
+    <table class="table">
+      <thead>
+        <tr>
+          <th data-key="name" class="sortable">Название</th>
+          <th data-key="comment" class="sortable">Категория</th>
+          <th data-key="subway" class="sortable">Метро</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <p>
+      За основу взята информация, предоставленная Мирой Арсенич. По всем
+      вопросам обращайтесь
+    </p>
+  </body>
+</html>

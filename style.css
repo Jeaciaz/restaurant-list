@@ -1,0 +1,36 @@
+.sortable {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.sortable:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.sort-asc::after {
+  content: ' ▲';
+}
+
+.sort-desc::after {
+  content: ' ▼';
+}
+
+a[href*='instagram']::before {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5em;
+  background: url('assets/instagram.png') center no-repeat;
+  background-size: contain;
+}
+
+a::before {
+  content: '®️';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5em;
+  text-decoration: none;
+}
