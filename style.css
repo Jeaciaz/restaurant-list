@@ -34,3 +34,9 @@ a::before {
   margin-right: 0.5em;
   text-decoration: none;
 }
+
+@media screen and (max-width: 720px) {
+  body {
+    font-size: 12px;
+  }
+}

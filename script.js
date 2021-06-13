@@ -3,6 +3,11 @@ const btoi = (isAscending) => (isAscending ? 1 : -1)
 const getComparatorByName = (name, isAscending = true) => (a, b) =>
   a[name] > b[name] ? btoi(isAscending) : -btoi(isAscending)
 
+const addWordBreakBySymbol = (str, sym) => str.split(sym).join(sym + '&#8203;')
+
+const addWordBreakBySymbols = (str, syms) =>
+  syms.reduce(addWordBreakBySymbol, str)
+
 const render = (comparator = null) => {
   const data = getData()
   if (comparator !== null) {
@@ -15,6 +20,8 @@ const render = (comparator = null) => {
     const tdName = document.createElement('td')
     const nameLink = document.createElement('a')
     nameLink.setAttribute('href', href)
+    nameLink.setAttribute('target', '_blank')
+    nameLink.setAttribute('rel', 'noopener noreferrer')
     nameLink.innerText = name
     tdName.appendChild(nameLink)
     tr.appendChild(tdName)
@@ -24,7 +31,7 @@ const render = (comparator = null) => {
     tr.appendChild(tdComment)
 
     const tdSubway = document.createElement('td')
-    tdSubway.innerText = subway
+    tdSubway.innerHTML = addWordBreakBySymbols(subway, ['/', '-'])
     tr.appendChild(tdSubway)
 
     return tr
