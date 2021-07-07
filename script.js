@@ -39,7 +39,7 @@ const render = (comparator = null) => {
 
   const tbody = document.getElementById('tbody')
   tbody.innerHTML = ''
-  rows.map((tr) => tbody.appendChild(tr))
+  rows.forEach((tr) => tbody.appendChild(tr))
 }
 
 const getNextSortOrder = (isAsc) => {
@@ -75,6 +75,10 @@ let sortState = {
   isAscending: null,
 }
 
+const clearSortState = () => {
+  document.querySelectorAll('[data-key]').forEach((el) => el.className = 'sortable')
+}
+
 render()
 
 const genEventListener = (name) => ({ currentTarget }) => {
@@ -95,10 +99,8 @@ const genEventListener = (name) => ({ currentTarget }) => {
       ? getComparatorByName(sortState.col, sortState.isAscending)
       : null,
   )
-  currentTarget.setAttribute(
-    'class',
-    `sortable ${getSortOrderClass(sortState.isAscending)}`,
-  )
+  clearSortState()
+  currentTarget.className = `sortable ${getSortOrderClass(sortState.isAscending)}`
 }
 
 Object.values(SortStateCols).forEach((key) => {

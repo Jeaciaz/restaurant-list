@@ -1,11 +1,19 @@
+.table {
+  border-collapse: separate;
+  border-spacing: 0;
+  --bs-table-bg: white;
+}
+
 .sortable {
+  position: sticky;
+  top: 0;
   cursor: pointer;
   user-select: none;
   transition: background-color 0.15s ease-in-out;
 }
 
 .sortable:hover {
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color: rgb(240, 240, 240);
 }
 
 .sort-asc::after {
